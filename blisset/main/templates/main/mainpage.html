@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,8 +7,103 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Blisset</title>
+    <link rel="stylesheet" href="{% static 'main/css/mainpage.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/fonts_styles.css' %}">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+    <link rel="stylesheet" href="{% static 'main/css/slider.css' %}">
 </head>
 <body>
-<h1>Blisset</h1>
+<header>
+
+    <div class="header_links">
+        <a href="/">Главная</a>
+        <a href="/about_us">О нас</a>
+        <a href="">Каталог</a>
+    </div>
+
+    <div class="logo-container">
+        <a href="/" class="logo_link">
+            <img src="{% static 'main/img/logo.svg' %}" id="logo">
+        </a>
+    </div>
+
+    <div class="header_links" id="header_links-end">
+        <a href="email:{{ site_configs.email }}" class="email">{{ site_configs.email }}</a>
+        <a id="instagram_link" href="{{ site_configs.inst_url }}">
+            <img width="25px" src="{% static 'main/img/instagram.png' %}">
+        </a>
+    </div>
+
+</header>
+
+<div class="collections">
+    {% for collection in collections %}
+        <a href="/collections/{{ collection.get_url }}">{{ collection.name.upper }}</a>
+
+    {% endfor %}
+</div>
+
+{#<div class="slider">#}
+{#    <div class="slide">#}
+{#        <video width="100%" loop muted autoplay>#}
+{#            <source src="{% static 'main/video/video1_slider.mp4' %}">#}
+{#        </video>#}
+{#    </div>#}
+{#</div>#}
+
+<!-- start of hero -->
+<section class="hero-slider hero-style">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="slide-inner slide-bg-image"
+                     data-background="{% static 'main/img/BRIDE 2.jpg' %}">
+                    <div class="container">
+                        <div data-swiper-parallax="300" class="slide-title">
+                            <h2>BRIDE</h2>
+                        </div>
+                        <div data-swiper-parallax="400" class="slide-text">
+                            <p>Уже в продаже</p>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div data-swiper-parallax="500" class="slide-btns">
+                            <a href="#" class="theme-btn-s2">Посмотреть</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="slide-inner slide-bg-image"
+                     data-background="{% static 'main/img/BATTERFLY 1.JPG' %}">
+                    <div class="container">
+                        <div data-swiper-parallax="300" class="slide-title">
+                            <h2>BATTERFLY</h2>
+                        </div>
+                        <div data-swiper-parallax="400" class="slide-text">
+                            <p>Уже в продаже</p>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div data-swiper-parallax="500" class="slide-btns">
+                            <a href="#" class="theme-btn-s2">Посмотреть</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</section>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script src="{% static 'main/js/slider.js' %}"></script>
+
 </body>
 </html>
