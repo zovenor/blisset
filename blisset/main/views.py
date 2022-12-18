@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.views import View
-from . import site_configs
 from . import models
 
 
@@ -8,8 +7,7 @@ from . import models
 class mainPage(View):
     def get(self, request):
         data = {
-            'collections': models.CollectionModel.objects.all()[:5],
-            'site_configs': site_configs
+            'configs': models.ConfigsModel.objects.all()
         }
         return render(request, 'main/mainpage.html', data)
 

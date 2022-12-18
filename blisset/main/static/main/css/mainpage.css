@@ -1,136 +1,70 @@
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: 100%;
-    padding-top: 90px;
-    height: 400vh;
-}
-
-a {
-    transition: .5s;
-}
-
-.header_links > a {
+.instagram_lower a{
     text-decoration: none;
     color: black;
-    font-size: 17px;
-    font-family: Play, serif;
-    color: rgba(16, 24, 32, .8);
-    opacity: .75;
-    margin-right: 20px;
-    margin-left: 20px;
-    transition: .5s;
+    font-size: 30px;
+    font-family: TTDrugs;
 }
-
-
-header {
-    position: fixed;
-    z-index: 100000;
+.instagram_lower img{
+    width: 40px;
+    margin: 30px;
+}
+.instagram_lower{
+    display: flex;
+    flex-flow: column;
     width: 100%;
-    top: 0;
-    left: 0;
-    align-items: center;
-    display: flex;
-    background-color: rgba(251, 227, 238, 0.85);
-    padding-top: 20px;
-    padding-bottom: 20px;
-    height: 90px;
-    /*opacity: .9;*/
-    backdrop-filter: blur(15px);
-}
-
-.collections {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 40px;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
-
-.collections > a {
-    text-decoration: none;
-    font-family: 'Play';
-    color: rgba(16, 24, 32, .8);
-    margin-left: 50px;
-    margin-right: 50px;
-    transition: .5s;
+.instagram_block {
+    /* Чтобы спрятать часть линий, которые
+    ** будут вылазить за пределы блока */
+    overflow: hidden;
+    /* Выравнивание заголовка по центру,
+    ** можно использовать left, right */
+    text-align: center;
+    /* Тут можно добавить другие стили для заголовка */
+    font-size: 30px;
+    width: 60%;
 }
-
-#logo {
-    height: 40px;
-    transform: translateY(-7px);
+.instagram_block span {
+    /* Стили тега обертки для заголовков
+    ** в несколько строк */
+    display: inline-block;
+    vertical-align: middle;
 }
-
-.logo-container {
-    height: 90px;
-    position: fixed;
+.instagram_block:before,
+.instagram_block:after {
+    /* Обязательно указываем пустое свойство content,
+    ** иначе псевдоэлементы не появятся на сайте */
+    content: "";
+    /* Указываем что наши линии будут строчно-блочные и
+    ** выравнивание по высоте - по центру */
+    display: inline-block;
+    vertical-align: middle;
+    /* Задаем ширину 100% и выбираем высоту линии,
+    ** в нашем примере она равна 4 пикселям */
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 2px;
+    /* Добавляем цвет для линии */
+    /*background-color: rgb(251, 227, 238);*/
+    background-color: rgba(0,0,0,.5);
+    /* Добавляем пседоэлемантам возможность изменить
+    ** позицию линии, для создания отступов от текста */
+    position: relative;
 }
-
-#instagram_link {
-    text-decoration: none;
-    opacity: .6;
-    transition: .5s;
-    margin: 20px;
+.instagram_block:before {
+    /* Смещаем левую линию на 100% влево, чтобы линия
+    ** встала рядом с текстом слева */
+    margin-left: -100%;
+    /* Указываем в пикселях отступ линии от текста заголовка */
+    left: -40px;
 }
-
-#instagram_link:hover {
-    opacity: 1;
-}
-
-
-.collections > a:hover {
-    color: rgb(155, 130, 141);
-}
-
-.header_links > a:hover {
-    opacity: 1;
-}
-
-.header_links {
-    /*width: 30vw;*/
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-right: auto;
-    margin-left: 20px;
-    z-index: 1000000;
-}
-
-#header_links-end {
-    justify-content: flex-end;
-    margin-right: 20px;
-    margin-left: auto;
-}
-
-.slide {
-    background-color: blue;
-    height: 1000px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.slider video {
-    object-fit: cover;
-    height: 100%;
-}
-@media (max-width: 900px) {
-    .collections{
-        display: none;
-    }
-    header{
-        height: 70px;
-    }
-    body{
-        padding-top: 70px;
-    }
-}
-@media (max-width: 800px) {
-    .header_links{
-        display: none;
-    }
+.instagram_block:after {
+    /* Смещаем правую линию на 100% вправо, чтобы
+    ** линия встала рядом с текстом справа */
+    margin-right: -100%;
+    /* Указываем в пикселях отступ линии от текста заголовка */
+    right: -40px;
 }

@@ -1,64 +1,84 @@
-// HERO SLIDER
-    var menu = [];
-    jQuery('.swiper-slide').each( function(index){
-        menu.push( jQuery(this).find('.slide-inner').attr("data-text") );
-    });
-    var interleaveOffset = 0.5;
-    var swiperOptions = {
-        loop: true,
-        speed: 1000,
-        parallax: true,
-        autoplay: {
-            delay: 6500,
-            disableOnInteraction: false,
+let slider = new Swiper('.slider__container', {
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    autoplay: {
+        delay: 5000,
+    },
+    speed: 1000,
+    loop: true,
+    parallax: true,
+});
+
+let page2_descs = ['готовь подарки для любимых', 'беспроигрышный подарок']
+let page2_buttons = ['']
+
+let slider1__page2 = new Swiper('.slider1__page2', {
+    speed: 1000,
+    loop: true,
+    autoplay: {
+        delay: 5000,
+    },
+    parallax: true,
+    grabCursor: true,
+    effect: "creative",
+    creativeEffect: {
+        prev: {
+            shadow: true,
+            translate: ["-20%", 0, -1],
         },
-        watchSlidesProgress: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+        next: {
+            translate: ["100%", 0, 0],
         },
+    },
+});
 
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+let slider2__page2 = new Swiper('.slider2__page2', {
+    speed: 1000,
+    loop: true,
+    parallax: true,
+    grabCursor: true,
+    allowTouchMove: false,
+    effect: "creative",
+    creativeEffect: {
+        prev: {
+            shadow: true,
+            translate: ["-20%", 0, -1],
         },
+        next: {
+            translate: ["100%", 0, 0],
+        },
+    },
 
-        on: {
-            progress: function() {
-                var swiper = this;
-                for (var i = 0; i < swiper.slides.length; i++) {
-                    var slideProgress = swiper.slides[i].progress;
-                    var innerOffset = swiper.width * interleaveOffset;
-                    var innerTranslate = slideProgress * innerOffset;
-                    swiper.slides[i].querySelector(".slide-inner").style.transform =
-                    "translate3d(" + innerTranslate + "px, 0, 0)";
-                }      
-            },
+});
 
-            touchStart: function() {
-              var swiper = this;
-              for (var i = 0; i < swiper.slides.length; i++) {
-                swiper.slides[i].style.transition = "";
-              }
-            },
+let page2_button_slider = new Swiper('.page2_button_slider', {
+    loop: true,
+    parallax: true,
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+    },
+})
+let page2_title = new Swiper('.page2-title', {
+    loop: true,
+    parallax: true,
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+    },
+});
+let page2_desc = new Swiper('.page2_desc', {
+    loop: true,
+    parallax: true,
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+    },
+})
 
-            setTransition: function(speed) {
-                var swiper = this;
-                for (var i = 0; i < swiper.slides.length; i++) {
-                    swiper.slides[i].style.transition = speed + "ms";
-                    swiper.slides[i].querySelector(".slide-inner").style.transition =
-                    speed + "ms";
-                }
-            }
-        }
-    };
-
-    var swiper = new Swiper(".swiper-container", swiperOptions);
-
-    // DATA BACKGROUND IMAGE
-    var sliderBgSetting = $(".slide-bg-image");
-    sliderBgSetting.each(function(indx){
-        if ($(this).attr("data-background")){
-            $(this).css("background-image", "url(" + $(this).data("background") + ")");
-        }
-    });
+slider1__page2.controller.control = slider2__page2;
+slider2__page2.controller.control = page2_button_slider;
+page2_button_slider.controller.control = page2_title;
+page2_title.controller.control = page2_desc;

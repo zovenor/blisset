@@ -1,0 +1,89 @@
+{% load configs_tags %}
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'main/css/fonts_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+<header>
+
+    <div class="header_links">
+        <a href="/">Главная</a>
+        <a href="/about_us">О нас</a>
+        <a href="">Каталог</a>
+    </div>
+
+    <div class="logo-container">
+        <a href="/" class="logo_link">
+            <img src="{% static 'main/img/logo.svg' %}" id="logo">
+        </a>
+    </div>
+
+    <div class="header_links" id="header_links-end">
+        <a href="email: {% email %}" class="email">{% email %}</a>
+        <a id="instagram_link" href="https://www.instagram.com/{% instagram %}">
+            <img width="25px" src="{% static 'main/img/instagram.png' %}">
+        </a>
+    </div>
+
+</header>
+
+<div class="collections">
+    {% collections5 as collections %}
+    {% for collection in collections %}
+        <a href="/collections/{{ collection.get_url }}">{{ collection.name.upper }}</a>
+
+    {% endfor %}
+</div>
+
+<div class="btn-up btn-up_hide">
+    <img width="20px" src="{% static 'main/img/pngwing.com.png' %}" alt="">
+</div>
+
+<script>
+    const btnUp = {
+        el: document.querySelector('.btn-up'),
+        show() {
+            // удалим у кнопки класс btn-up_hide
+            this.el.classList.remove('btn-up_hide');
+        },
+        hide() {
+            // добавим к кнопке класс btn-up_hide
+            this.el.classList.add('btn-up_hide');
+        },
+        addEventListener() {
+            // при прокрутке содержимого страницы
+            window.addEventListener('scroll', () => {
+                // определяем величину прокрутки
+                const scrollY = window.scrollY || document.documentElement.scrollTop;
+                // если страница прокручена больше чем на 400px, то делаем кнопку видимой, иначе скрываем
+                scrollY > 400 ? this.show() : this.hide();
+            });
+            // при нажатии на кнопку .btn-up
+            document.querySelector('.btn-up').onclick = () => {
+                // переместим в начало страницы
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    }
+
+    btnUp.addEventListener();
+</script>
+
+
+{% block content %}{% endblock %}
+</body>
+</html>

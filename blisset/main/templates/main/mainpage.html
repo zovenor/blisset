@@ -1,109 +1,173 @@
+{% extends 'main/base.html' %}
+
 {% load static %}
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blisset</title>
+{% load configs_tags %}
+
+{% block title %}Blisset{% endblock %}
+
+{% block head %}
     <link rel="stylesheet" href="{% static 'main/css/mainpage.css' %}">
-    <link rel="stylesheet" href="{% static 'main/css/fonts_styles.css' %}">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
     <link rel="stylesheet" href="{% static 'main/css/slider.css' %}">
-</head>
-<body>
-<header>
+{% endblock head %}
 
-    <div class="header_links">
-        <a href="/">Главная</a>
-        <a href="/about_us">О нас</a>
-        <a href="">Каталог</a>
-    </div>
+{% block content %}
 
-    <div class="logo-container">
-        <a href="/" class="logo_link">
-            <img src="{% static 'main/img/logo.svg' %}" id="logo">
-        </a>
-    </div>
 
-    <div class="header_links" id="header_links-end">
-        <a href="email:{{ site_configs.email }}" class="email">{{ site_configs.email }}</a>
-        <a id="instagram_link" href="{{ site_configs.inst_url }}">
-            <img width="25px" src="{% static 'main/img/instagram.png' %}">
-        </a>
-    </div>
 
-</header>
+    <div class="slider__container swiper-container">
+        <div class="slider__wrapper swiper-wrapper">
 
-<div class="collections">
-    {% for collection in collections %}
-        <a href="/collections/{{ collection.get_url }}">{{ collection.name.upper }}</a>
+            <div class="slider__slide swiper-slide">
+                <video preload="auto" muted loop autoplay>
+                    <source src="{% static 'main/video/video1_slider.mp4' %}" type="video/mp4">
+                </video>
 
-    {% endfor %}
-</div>
-
-{#<div class="slider">#}
-{#    <div class="slide">#}
-{#        <video width="100%" loop muted autoplay>#}
-{#            <source src="{% static 'main/video/video1_slider.mp4' %}">#}
-{#        </video>#}
-{#    </div>#}
-{#</div>#}
-
-<!-- start of hero -->
-<section class="hero-slider hero-style">
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-                <div class="slide-inner slide-bg-image"
-                     data-background="{% static 'main/img/BRIDE 2.jpg' %}">
-                    <div class="container">
-                        <div data-swiper-parallax="300" class="slide-title">
-                            <h2>BRIDE</h2>
-                        </div>
-                        <div data-swiper-parallax="400" class="slide-text">
-                            <p>Уже в продаже</p>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div data-swiper-parallax="500" class="slide-btns">
-                            <a href="#" class="theme-btn-s2">Посмотреть</a>
-                        </div>
-                    </div>
+                <div class="slider__content">
+                    <div class="slider__title">Alisee</div>
+                    уже в продаже
+                    <a class="slider__button" href="/">
+                        Вдохновиться
+                    </a>
                 </div>
             </div>
 
-            <div class="swiper-slide">
-                <div class="slide-inner slide-bg-image"
-                     data-background="{% static 'main/img/BATTERFLY 1.JPG' %}">
-                    <div class="container">
-                        <div data-swiper-parallax="300" class="slide-title">
-                            <h2>BATTERFLY</h2>
-                        </div>
-                        <div data-swiper-parallax="400" class="slide-text">
-                            <p>Уже в продаже</p>
-                        </div>
-                        <div class="clearfix"></div>
-                        <div data-swiper-parallax="500" class="slide-btns">
-                            <a href="#" class="theme-btn-s2">Посмотреть</a>
-                        </div>
-                    </div>
+            <div class="slider__slide swiper-slide">
+                <img src="{% static 'main/img/BRIDE 2.jpg' %}" alt="">
+
+                <div class="slider__content">
+                    <div class="slider__title">Alisee</div>
+                    уже в продаже
+                    <a class="slider__button" href="/">
+                        Вдохновиться
+                    </a>
+                </div>
+            </div>
+
+            <div class="slider__slide swiper-slide">
+                <img src="{% static 'main/img/BATTERFLY 1.JPG' %}" alt="">
+
+                <div class="slider__content">
+                    <div class="slider__title">Alisee</div>
+                    уже в продаже
+                    <a class="slider__button" href="/">
+                        Вдохновиться
+                    </a>
                 </div>
             </div>
 
         </div>
-
         <div class="swiper-pagination"></div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
     </div>
-</section>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-<script src="{% static 'main/js/slider.js' %}"></script>
+    <section class="page2">
+        <div class="page2-content">
+            <div class="big_square" style="transform: translate(-500px, 250px)">
+                <div class="square" style="opacity: .0"></div>
+                <div class="square" style="opacity: .4"></div>
+                <div class="square" style="opacity: .2"></div>
+                <div class="square" style="opacity: .1"></div>
+            </div>
+            <div class="big_square" style="transform: translate(250px, 225px)">
+                <div class="square" style="opacity: .0"></div>
+                <div class="square" style="opacity: .0"></div>
+                <div class="square" style="opacity: .2"></div>
+                <div class="square" style="opacity: .6"></div>
+            </div>
+            <div class="big_square" style="transform: translate(-200px, 225px)">
+                <div class="square" style="opacity: .0"></div>
+                <div class="square" style="opacity: .0"></div>
+                <div class="square" style="opacity: .0"></div>
+                <div class="square" style="opacity: .2"></div>
+            </div>
+            <div class="big_square" style="transform: translate(400px, 75px)">
+                <div class="square" style="opacity: .2"></div>
+                <div class="square" style="opacity: .0"></div>
+                <div class="square" style="opacity: .0"></div>
+                <div class="square" style="opacity: .1"></div>
+            </div>
+            <div class="big_square" style="transform: translate(400px, -225px)">
+                <div class="square" style="opacity: .2"></div>
+                <div class="square" style="opacity: .0"></div>
+                <div class="square" style="opacity: .0"></div>
+                <div class="square" style="opacity: .0"></div>
+            </div>
+            <a href="/" class="page2-button page2_button_slider swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="page2_button_slider_slide swiper-slide">
+                        Подобрать комплект
+                    </div>
+                    <div class="page2_button_slider_slide swiper-slide">
+                        Беспроигрышный подарок
+                    </div>
+                </div>
+            </a>
+            <div class="page2-text">
+                <span class="slider__title page2-title swiper-container">
+                    <div class="swiper-wrapper">
+                    <div class=" swiper-slide">
+                        Подарочный сертификат
+                    </div>
+                     <div class=" swiper-slide">
+                        FASHION COLLECTION
+                    </div>
+                </div>
+                </span>
+                <span class="page2_desc" id="page2_desc">
+                    <div class="swiper-wrapper">
+                    <div class=" swiper-slide">
+                        готовь подарки для любимых
+                    </div>
+                     <div class=" swiper-slide">
 
-</body>
-</html>
+                    </div>
+                </div></span>
+            </div>
+            <span class="page2-text2">
+                Новогодняя коллекция
+            </span>
+
+            <div class="slider1__page2 swiper-container" style=" width: 750px; height: 700px">
+                <div class="swiper-wrapper">
+                    <div class="slider__slide_page2 slider__slide swiper-slide">
+                        <img src="{% static 'main/img/BRIDE 2.jpg' %}" alt="">
+                    </div>
+                    <div class="slider__slide_page2 slider__slide slider__slide swiper-slide">
+                        <img src="{% static 'main/img/BATTERFLY 1.JPG' %}" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider2__page2 swiper-container" style="width: 200px; height: 300px">
+                <div class="swiper-wrapper">
+                    <div class="slider__slide_page2 slider__slide swiper-slide">
+                        <img src="{% static 'main/img/BRIDE 2.jpg' %}" alt="">
+                    </div>
+                    <div class="slider__slide_page2 slider__slide swiper-slide">
+                        <img src="{% static 'main/img/BATTERFLY 1.JPG' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <div class="instagram_lower">
+        <img src="{% static 'main/img/instagram.png' %}" alt="">
+        <span class="instagram_block">
+             <a href="https://www.instagram.com/{% instagram %}">@{% instagram %}</a>
+        </span>
+        <span class="instagram_block">
+             <a href="https://www.instagram.com/{% instagram2 %}">@{% instagram2 %}</a>
+        </span>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    {#    <script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js'></script>#}
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src="{% static 'main/js/slider.js' %}"></script>
+
+{% endblock %}
