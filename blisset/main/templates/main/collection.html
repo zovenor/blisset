@@ -1,3 +1,21 @@
 {% extends 'main/base.html' %}
+{% load static %}
 
 {% block title %}{{ collection.name }}{% endblock %}
+
+
+{% block content %}
+
+    <link rel="stylesheet" href="{% static 'main/css/collection.css' %}">
+
+    <div class="clothes">
+        {% for clothes_obj in clothes %}
+            <a class="clothes_block" href="/clothes/{{ clothes_obj.pk }}">
+                <div class="clothes_img_block">
+                    <img class="clothes_img" src="{{ clothes_obj.photos.all.0.img.url }}" alt="">
+                </div>
+                <p>{{ clothes_obj.name }}</p>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

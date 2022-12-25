@@ -1,0 +1,57 @@
+.collections_block {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.collection_block {
+    width: 400px;
+    height: 600px;
+    background-color: #363636;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.collection_link {
+    text-decoration: none;
+    color: white;
+    font-family: TTDrugs;
+    font-size: 20px;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transition: .5s;
+    padding: 10px;
+    position: absolute;
+}
+
+.background_img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /*position: absolute;*/
+    /*max-height: 600px;*/
+    /*max-width: 400px;*/
+    opacity: .5;
+    transition-duration: .5s;
+}
+
+.collection_block:hover .background_img {
+    opacity: 1;
+}
+
+.collection_block:hover .collection_link{
+    color: white;
+    background-color: rgba(0, 0, 0, .4);
+}

@@ -1,0 +1,22 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Коллекции{% endblock %}
+
+
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'main/css/collections.css' %}">
+
+    <div class="collections_block">
+        {% for collection in collections %}
+            <a style="overflow: hidden" href="/collections/{{ collection.get_url }}" class="collection_block">
+                <p class="collection_link" >{{ collection.name.upper }}</p>
+                <img src="/{{ collection.get_img }}" alt="" class="background_img">
+            </a>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}

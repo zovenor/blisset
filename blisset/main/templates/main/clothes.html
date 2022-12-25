@@ -1,0 +1,86 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}{{ clothes.name }} - {{ clothes.collection.name }}{% endblock %}
+
+
+{% block head %}
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+    <link rel="stylesheet" href="{% static 'main/css/clothes.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="clothes_info">
+        <div class="clothes_img_sliders">
+
+            <div class="swiper-container slider_1">
+                <div class="swiper-wrapper">
+
+                    {% for photo in clothes.photos.all %}
+
+                        <div class="swiper-slide slider_photo">
+                            <img src="{{ photo.img.url }}" alt="">
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <div class="swiper-container slider_2">
+                <div class="swiper-wrapper slider1_wrapper ">
+
+                    {% for photo in clothes.photos.all %}
+
+                        <div class="slider2_photo swiper-slide">
+                            <img class="slider2_img_img" src="{{ photo.img.url }}" alt="">
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+
+        <div class="clothes_info_right">
+            <h3 class="colors_title">
+                Цвета:
+            </h3>
+            <div class="clothes_colors">
+                {% for color in clothes.colors.all %}
+                    <div class="color_block">
+                        <div class="color_block_mini"
+                             style="background-color: {{ color.color }}; width: 30px; height: 30px"></div>
+                        <div class="color_block_name">{{ color.name }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            <h3 class="sizes_title">Размеры:</h3>
+            <div class="clothes_sizes">
+                {#                {{ clothes.get_sizes }}#}
+                {% for size in clothes.get_sizes %}
+                    <p>{{ size.get_formatted_data }}</p>
+                {% endfor %}
+            </div>
+            <h3 class="construction_title">Конструкция:</h3>
+            <div class="construction">{{ clothes.construction }}</div>
+            <h3 class="features_title">Особенности модели:</h3>
+            <div class="features">{{ clothes.features }}</div>
+            <h3 class="article_title">Артикул:</h3>
+            <div class="article">{{ clothes.article }}</div>
+            <h3 class="composition_title">Состав:</h3>
+            <div class="composition">{{ clothes.composition }}</div>
+        </div>
+
+    </div>
+
+    <script src="{% static 'main/js/clothes.js' %}"></script>
+
+{% endblock %}

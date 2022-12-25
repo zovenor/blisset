@@ -23,6 +23,7 @@ let slider1__page2 = new Swiper('.slider1__page2', {
     parallax: true,
     grabCursor: true,
     effect: "creative",
+    allowTouchMove: false,
     creativeEffect: {
         prev: {
             shadow: true,
@@ -47,7 +48,7 @@ let slider2__page2 = new Swiper('.slider2__page2', {
             translate: ["-20%", 0, -1],
         },
         next: {
-            translate: ["100%", 0, 0],
+            translate: ["80%", 0, 0],
         },
     },
 
@@ -57,6 +58,7 @@ let page2_button_slider = new Swiper('.page2_button_slider', {
     loop: true,
     parallax: true,
     effect: 'fade',
+    allowTouchMove: false,
     fadeEffect: {
         crossFade: true
     },
@@ -65,6 +67,7 @@ let page2_title = new Swiper('.page2-title', {
     loop: true,
     parallax: true,
     effect: 'fade',
+    allowTouchMove: false,
     fadeEffect: {
         crossFade: true
     },
@@ -72,6 +75,7 @@ let page2_title = new Swiper('.page2-title', {
 let page2_desc = new Swiper('.page2_desc', {
     loop: true,
     parallax: true,
+    allowTouchMove: false,
     effect: 'fade',
     fadeEffect: {
         crossFade: true

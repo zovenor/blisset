@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main'
+    'main',
+    'colorfield'
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,6 @@ TIME_ZONE = 'Europe/Kiev'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+
+MEDIA_ROOT = f'{BASE_DIR}/media/img/'
+MEDIA_URL = '/'

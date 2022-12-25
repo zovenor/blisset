@@ -19,7 +19,7 @@
     <div class="header_links">
         <a href="/">Главная</a>
         <a href="/about_us">О нас</a>
-        <a href="">Каталог</a>
+        <a href="/collections">Каталог</a>
     </div>
 
     <div class="logo-container">
@@ -84,6 +84,50 @@
 </script>
 
 
-{% block content %}{% endblock %}
+<div class="content">
+    {% block content %}{% endblock %}
+</div>
+
+<div class="instagram_lower">
+    <img src="{% static 'main/img/instagram.png' %}" alt="">
+    <span class="instagram_block">
+             <a href="https://www.instagram.com/{% instagram %}">@{% instagram %}</a>
+        </span>
+    {#        <span class="instagram_block">#}
+    {#             <a href="https://www.instagram.com/{% instagram2 %}">@{% instagram2 %}</a>#}
+    {#        </span>#}
+</div>
+
+<footer>
+    <div class="footer-column">
+        <a href="/" class="logo_link" id="logo_footer">
+            <img src="{% static 'main/img/logo.svg' %}" id="logo">
+        </a>
+        <p> Мастерски изготовленное
+            роскошное белья, одежда
+            для дома, будуарные наряды
+            для Утра невесты, созданные
+            женщинами для женщин</p>
+    </div>
+
+    <div class="footer-column">
+        <a href="">Мы рады вам помочь</a>
+        <a href="">Свяжитель с нами</a>
+        <a href="">Руководство по размерам</a>
+        <a href="">Руководство по уходу</a>
+    </div>
+    <div class="footer-column">
+        <a href="">Информация по заказу</a>
+        <a href="">Заказ и доставка</a>
+        <a href="">Возврат и обмен</a>
+        <a href="">Договор публичной оферты</a>
+    </div>
+    <div class="footer-column">
+        <p class="contacts_title">Контакты</p>
+        <a href="tel:+375296190482">+375 (29) 619-04-82</a>
+        <a href="tel:+375297139435">+375 (29) 713-94-35</a>
+    </div>
+</footer>
+
 </body>
 </html>
