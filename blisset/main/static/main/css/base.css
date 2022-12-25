@@ -3,7 +3,8 @@
 * {
     box-sizing: border-box;
 }
-html{
+
+html {
     min-height: 100vh;
 }
 
@@ -62,6 +63,7 @@ header {
 #logo {
     height: 40px;
     transform: translateY(-7px);
+    z-index: 999999999999999999;
 }
 
 .logo-container {
@@ -134,9 +136,7 @@ header {
     body {
         padding-top: 70px;
     }
-}
 
-@media (max-width: 800px) {
     .header_links {
         display: none;
     }
@@ -166,6 +166,7 @@ header {
     /* высота элемента */
     height: 50px;
     transition-duration: .5s;
+    z-index: 9999;
 }
 
 
@@ -214,51 +215,61 @@ footer {
 #logo_footer img {
     height: 70px;
 }
-#logo_footer{
+
+#logo_footer {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.footer-column a{
+
+.footer-column a {
     color: rgba(16, 24, 32, .4);
     text-decoration: none;
     font-size: 20px;
     font-family: TTDrugs;
 }
-.footer-column:nth-child(1){
+
+.footer-column:nth-child(1) {
     align-items: center;
 }
-.footer-column a{
+
+.footer-column a {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.contacts_title{
+
+.contacts_title {
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.content{
+
+.content {
     min-height: calc(100vh - 480px);
 }
+
 @media (max-width: 1000px) {
-    .footer-column{
+    .footer-column {
         width: 400px;
     }
-    footer{
+
+    footer {
         justify-content: center;
     }
 }
 
-.instagram_lower a{
+.instagram_lower a {
     text-decoration: none;
     color: black;
     font-size: 30px;
     font-family: TTDrugs;
 }
-.instagram_lower img{
+
+.instagram_lower img {
     width: 40px;
     margin: 30px;
 }
-.instagram_lower{
+
+.instagram_lower {
     display: flex;
     flex-flow: column;
     width: 100%;
@@ -267,6 +278,7 @@ footer {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
 .instagram_block {
     /* Чтобы спрятать часть линий, которые
     ** будут вылазить за пределы блока */
@@ -278,12 +290,14 @@ footer {
     font-size: 30px;
     width: 60%;
 }
+
 .instagram_block span {
     /* Стили тега обертки для заголовков
     ** в несколько строк */
     display: inline-block;
     vertical-align: middle;
 }
+
 .instagram_block:before,
 .instagram_block:after {
     /* Обязательно указываем пустое свойство content,
@@ -299,11 +313,12 @@ footer {
     height: 2px;
     /* Добавляем цвет для линии */
     /*background-color: rgb(251, 227, 238);*/
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, .5);
     /* Добавляем пседоэлемантам возможность изменить
     ** позицию линии, для создания отступов от текста */
     position: relative;
 }
+
 .instagram_block:before {
     /* Смещаем левую линию на 100% влево, чтобы линия
     ** встала рядом с текстом слева */
@@ -311,10 +326,176 @@ footer {
     /* Указываем в пикселях отступ линии от текста заголовка */
     left: -40px;
 }
+
 .instagram_block:after {
     /* Смещаем правую линию на 100% вправо, чтобы
     ** линия встала рядом с текстом справа */
     margin-right: -100%;
     /* Указываем в пикселях отступ линии от текста заголовка */
     right: -40px;
+}
+
+.feedback-btn {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    width: 50px;
+    height: 75px;
+    background-color: rgba(251, 227, 238, 1);
+    z-index: 9999999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    cursor: pointer;
+}
+
+.feedback_window {
+    position: fixed;
+    top: calc(50vh - 300px);
+    left: calc(50vw - 250px);
+    width: 500px;
+    height: 600px;
+    background-color: rgba(251, 227, 238, 1);
+    z-index: 999999;
+    font-family: TTDrugs;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    padding: 20px;
+    border-radius: 10px;
+    /*transform: translateY(-100vh);*/
+    opacity: 0;
+    display: none;
+    transition: .5s;
+}
+
+.feedback-title {
+    font-size: 25px;
+}
+
+.feedback_window form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*flex-flow: column;*/
+    flex-wrap: wrap;
+}
+
+.feedback_window form input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 0px;
+    margin: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.feedback-message {
+    resize: none;
+    width: 400px;
+    height: 100px;
+    border-radius: 10px;
+    border: 0px;
+    padding: 10px;
+}
+
+.logo-form {
+    width: 200px;
+}
+
+.personal_data {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+input {
+    font-family: TTDrugs;
+}
+
+input[type=checkbox] {
+    accent-color: rgba(16, 24, 32, .8);
+}
+
+.submit {
+    background-color: rgba(16, 24, 32, .8);
+    color: white;
+    border-radius: 0px;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    transition-duration: .5s;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+input[type=submit]:hover {
+    opacity: .8;
+}
+
+form {
+    color: rgba(16, 24, 32, .8);
+}
+
+.exit-form {
+    position: fixed;
+    transform: translate(200px, -250px);
+    cursor: pointer;
+}
+
+.menu_mobile {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(251, 227, 238, 1);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    /*align-items: center;*/
+    flex-flow: column;
+    padding: 40px;
+    transform: translateY(-100vh);
+    transition: .5s;
+}
+.menu_mobile a{
+    text-decoration: none;
+    color: rgba(16, 24, 32, .8);
+    font-size: 30px;
+    margin: 10px;
+}
+.menu_btn{
+    position: fixed;
+    right: 20px;
+    opacity: .5;
+    display: none;
+    cursor: pointer;
+}
+.menu_btn img{
+    width: 30px;
+}
+.collections_mobile{
+    display: flex;
+    flex-flow: column;
+}
+
+@media (max-width: 900px) {
+    .menu_mobile {
+        display: flex;
+    }
+
+    .feedback-btn {
+        display: none;
+    }
+    .menu_btn{
+        display: block;
+    }
 }

@@ -81,8 +81,18 @@ let page2_desc = new Swiper('.page2_desc', {
         crossFade: true
     },
 })
+let page2_text2 = new Swiper('.page2-text2', {
+    loop: true,
+    parallax: true,
+    allowTouchMove: false,
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+    },
+})
 
 slider1__page2.controller.control = slider2__page2;
 slider2__page2.controller.control = page2_button_slider;
 page2_button_slider.controller.control = page2_title;
 page2_title.controller.control = page2_desc;
+page2_desc.controller.control = page2_text2;

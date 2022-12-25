@@ -49,3 +49,11 @@ for (let obj of objects) {
     zoomImg(obj);
     // console.log(obj.querySelector('#slider2_img_img'));
 }
+
+let mobileSlider = new Swiper('.mobile_slider', {
+    effect: 'fade',
+    pagination: {
+        el: ".swiper-pagination",
+    },
+    allowTouchMove: true,
+})

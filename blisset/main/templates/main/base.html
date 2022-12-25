@@ -14,6 +14,26 @@
     {% block head %}{% endblock %}
 </head>
 <body>
+
+<div class="feedback_window">,
+    <img width="40px" height="40px" src="{% static 'main/img/exit.png' %}" onclick="closeFeedback()" alt=""
+         class="exit-form">
+    <img class="logo-form" src="{% static 'main/img/logo.svg' %}">
+    <p class="feedback-title">Обратная связь</p>
+    <form method="post">
+        {% csrf_token %}
+        <input placeholder="Как вас зовут" type="text">
+        <input placeholder="Город" type="text">
+        <input placeholder="E-mail" type="email">
+        <input placeholder="Тема" type="text">
+        <textarea class="feedback-message" placeholder="Сообщение"></textarea>
+        <div class="personal_data">
+            <input type="checkbox">
+            Соглашаюсь на обработку персональных данных
+        </div>
+        <input class="submit" type="submit" value="Отправить заявку">
+    </form>
+</div>
 <header>
 
     <div class="header_links">
@@ -26,6 +46,9 @@
         <a href="/" class="logo_link">
             <img src="{% static 'main/img/logo.svg' %}" id="logo">
         </a>
+        <div class="menu_btn" onclick="checkMenu()">
+            <img src="{% static 'main/img/menu.png' %}" alt="">
+        </div>
     </div>
 
     <div class="header_links" id="header_links-end">
@@ -128,6 +151,70 @@
         <a href="tel:+375297139435">+375 (29) 713-94-35</a>
     </div>
 </footer>
+
+<div class="feedback-btn" onclick="openFeedback()">
+    <img width="25px" src="{% static 'main/img/mail.png' %}" alt="">
+</div>
+
+<script>
+    function openFeedback() {
+        {#document.querySelector('.feedback_window').style.display = 'flex';#}
+
+        document.querySelector('.feedback_window').style.display = 'flex';
+        document.querySelector('.feedback_window').style.opacity = '100%';
+
+    }
+
+    function closeFeedback() {
+        document.querySelector('.feedback_window').style.opacity = '0%';
+        setTimeout(() => {
+            document.querySelector('.feedback_window').style.display = 'none';
+
+            {#document.querySelector('.feedback_window').style.transform = 'translateY(-100vh)'#}
+        }, 500);
+
+
+    }
+</script>
+
+<script>
+    let menu = false;
+
+    function checkMenu() {
+        if (!menu) {
+            openMenu();
+            menu = true;
+        } else {
+            closeMenu();
+            menu = false;
+        }
+    }
+
+    function openMenu() {
+        document.querySelector('.menu_mobile').style.transform = 'translateY(0)'
+    }
+
+    function closeMenu() {
+        document.querySelector('.menu_mobile').style.transform = 'translateY(-100vh)'
+
+    }
+</script>
+
+<div class="menu_mobile">
+    <a href="/">Главная</a>
+    <a href="/about_us">О нас</a>
+    <a href="/collections">Каталог</a>
+
+    <hr>
+
+    <div class="collections_mobile">
+        {% collections5 as collections %}
+        {% for collection in collections %}
+            <a href="/collections/{{ collection.get_url }}">{{ collection.name.upper }}</a>
+
+        {% endfor %}
+    </div>
+</div>
 
 </body>
 </html>
