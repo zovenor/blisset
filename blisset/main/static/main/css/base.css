@@ -464,7 +464,7 @@ form {
     flex-flow: column;
     padding: 40px;
     transform: translateY(-100vh);
-    transition: .5s;
+    transition: .5spython;
 }
 .menu_mobile a{
     text-decoration: none;
