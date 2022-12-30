@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<div class="feedback_window">,
+<div class="feedback_window">
     <img width="40px" height="40px" src="{% static 'main/img/exit.png' %}" onclick="closeFeedback()" alt=""
          class="exit-form">
     <img class="logo-form" src="{% static 'main/img/logo.svg' %}">
@@ -36,37 +36,46 @@
 </div>
 <header>
 
-    <div class="header_links">
-        <a href="/">Главная</a>
-        <a href="/about_us">О нас</a>
-        <a href="/collections">Каталог</a>
-    </div>
+    <div class="header_links_top">
+        <div class="header_links">
+            <a href="/">Главная</a>
+            <a href="/about_us">О нас</a>
+            <a href="/collections">Каталог</a>
+        </div>
 
-    <div class="logo-container">
-        <a href="/" class="logo_link">
-            <img src="{% static 'main/img/logo.svg' %}" id="logo">
-        </a>
-        <div class="menu_btn" onclick="checkMenu()">
-            <img src="{% static 'main/img/menu.png' %}" alt="">
+        <div class="header_links" id="header_links-end">
+            <a href="email: {% email %}" class="email">{% email %}</a>
+            <a id="instagram_link" href="https://www.instagram.com/{% instagram %}">
+                <img width="20px" src="{% static 'main/img/instagram.png' %}">
+            </a>
         </div>
     </div>
 
-    <div class="header_links" id="header_links-end">
-        <a href="email: {% email %}" class="email">{% email %}</a>
-        <a id="instagram_link" href="https://www.instagram.com/{% instagram %}">
-            <img width="25px" src="{% static 'main/img/instagram.png' %}">
-        </a>
+
+    <div class="header_strip">
+        <div class="logo-container">
+            <a href="/" class="logo_link">
+                <img src="{% static 'main/img/logo.svg' %}" id="logo">
+            </a>
+
+        </div>
+    </div>
+
+    <div class="menu_btn" onclick="checkMenu()">
+        <img src="{% static 'main/img/menu.png' %}" alt="">
+    </div>
+
+    <div class="collections">
+        {% collections5 as collections %}
+        {% for collection in collections %}
+            <a href="/collections/{{ collection.get_url }}">{{ collection.name.upper }}</a>
+
+        {% endfor %}
+        <a href="/gift_certificate">GIFT CERTIFICATE</a>
     </div>
 
 </header>
 
-<div class="collections">
-    {% collections5 as collections %}
-    {% for collection in collections %}
-        <a href="/collections/{{ collection.get_url }}">{{ collection.name.upper }}</a>
-
-    {% endfor %}
-</div>
 
 <div class="btn-up btn-up_hide">
     <img width="20px" src="{% static 'main/img/pngwing.com.png' %}" alt="">
@@ -107,6 +116,8 @@
 </script>
 
 
+<div class="path">{% block path %}{% endblock %}</div>
+
 <div class="content">
     {% block content %}{% endblock %}
 </div>
@@ -114,11 +125,11 @@
 <div class="instagram_lower">
     <img src="{% static 'main/img/instagram.png' %}" alt="">
     <span class="instagram_block">
-             <a href="https://www.instagram.com/{% instagram %}">@{% instagram %}</a>
-        </span>
-    {#        <span class="instagram_block">#}
-    {#             <a href="https://www.instagram.com/{% instagram2 %}">@{% instagram2 %}</a>#}
-    {#        </span>#}
+             <a href="https://www.instagram.com/blissetofficial/">@blissetofficial</a>
+    </span>
+    <span class="instagram_block">
+                 <a href="https://www.instagram.com/blissetwedding/">@blissetwedding</a>
+    </span>
 </div>
 
 <footer>
@@ -127,26 +138,26 @@
             <img src="{% static 'main/img/logo.svg' %}" id="logo">
         </a>
         <p> Мастерски изготовленное
-            роскошное белья, одежда
+            роскошное бельё, одежда
             для дома, будуарные наряды
             для Утра невесты, созданные
             женщинами для женщин</p>
     </div>
 
     <div class="footer-column">
-        <a href="">Мы рады вам помочь</a>
-        <a href="">Свяжитель с нами</a>
+        <p style="text-transform: uppercase" href="">Мы рады вам помочь</p>
+        <a href="/contact_us">Свяжитель с нами</a>
         <a href="">Руководство по размерам</a>
         <a href="">Руководство по уходу</a>
     </div>
     <div class="footer-column">
-        <a href="">Информация по заказу</a>
+        <p style="text-transform: uppercase" href="">Информация по заказу</p>
         <a href="">Заказ и доставка</a>
         <a href="">Возврат и обмен</a>
         <a href="">Договор публичной оферты</a>
     </div>
     <div class="footer-column">
-        <p class="contacts_title">Контакты</p>
+        <p style="text-transform: uppercase">Контакты</p>
         <a href="tel:+375296190482">+375 (29) 619-04-82</a>
         <a href="tel:+375297139435">+375 (29) 713-94-35</a>
     </div>
@@ -213,6 +224,7 @@
             <a href="/collections/{{ collection.get_url }}">{{ collection.name.upper }}</a>
 
         {% endfor %}
+        <a href="/gift_certificate">GIFT CERTIFICATE</a>
     </div>
 </div>
 

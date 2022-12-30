@@ -13,6 +13,15 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 {% endblock %}
 
+{% block path %}
+    <div class="path_links">
+        <a href="/">ГЛАВНАЯ</a>/
+        <a href="/collections">КАТАЛОГ</a>/
+        <a href="/collections/{{ clothes.collection.get_url }}">{{ clothes.collection.name }}</a>/
+        <a href="/clothes/{{ clothes.id }}">{{ clothes.name }}</a>
+    </div>
+{% endblock %}
+
 {% block content %}
 
     <div class="clothes_info">
@@ -47,20 +56,20 @@
                 <div class="swiper-pagination"></div>
             </div>
 
-{#            <div class="mobile_slider swiper-container">#}
-{#                <div class="swiper-wrapper">#}
-{#                    <div class="swiper-slide">#}
-{#                        {% for photo in clothes.photos.all %}#}
-{##}
-{#                            <div class="mobile_slider_photo swiper-slide">#}
-{#                                <img width="400%" height="600px" class="mobile_slider_img_img" src="{{ photo.img.url }}"#}
-{#                                     alt="">#}
-{#                            </div>#}
-{##}
-{#                        {% endfor %}#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
+                        <div class="mobile_slider swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    {% for photo in clothes.photos.all %}
+
+                                        <div class="mobile_slider_photo swiper-slide">
+                                            <img width="400%" height="600px" class="mobile_slider_img_img" src="{{ photo.img.url }}"
+                                                 alt="">
+                                        </div>
+
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
 
         </div>
 

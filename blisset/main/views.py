@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from . import models
 
@@ -10,6 +10,9 @@ class mainPage(View):
             'configs': models.ConfigsModel.objects.all()
         }
         return render(request, 'main/mainpage.html', data)
+
+    def post(self, request):
+        return redirect('/')
 
 
 class CollectionPage(View):
@@ -24,6 +27,9 @@ class CollectionPage(View):
             }
             return render(request, 'main/collection.html', data)
 
+    def post(self, request):
+        return mainPage.post(request)
+
 
 class CollectionsPage(View):
     def get(self, request):
@@ -32,6 +38,9 @@ class CollectionsPage(View):
             'collections': collections
         }
         return render(request, 'main/collections.html', data)
+
+    def post(self, request):
+        return mainPage.post(request)
 
 
 def page_not_found_view(request, exception):
@@ -54,3 +63,22 @@ class ClothesPage(View):
         }
 
         return render(request, 'main/clothes.html', data)
+
+    def post(self, request):
+        return mainPage.post(request)
+
+
+class ContactUsPage(View):
+    def get(self, request):
+        return render(request, 'main/contact_us.html')
+
+    def post(self, request):
+        return mainPage.post(request)
+
+
+class AboutUsPage(View):
+    def get(self, request):
+        return render(request, 'main/about_us.html')
+
+    def post(self, request):
+        return mainPage.post(request)

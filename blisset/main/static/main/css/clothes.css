@@ -74,7 +74,6 @@
 }
 .clothes_colors{
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 .color_block{
@@ -104,5 +103,11 @@
     }
     .mobile_slider{
         display: flex;
+    }
+    .clothes_info{
+        padding: 0;
+    }
+    .clothes_info_right{
+        padding: 40px;
     }
 }

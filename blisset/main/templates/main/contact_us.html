@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Свяжитесь с нами{% endblock %}
+
+{% block head %}
+
+    <link rel="stylesheet" href="{% static 'main/css/contact_us.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+
+
+    <img src="{% static 'main/img/photo_2022-12-30_04-50-42.jpg' %}" alt="" class="background">
+
+    <div class="contacts">
+        <h1>Мы рады ответить на все Ваши вопросы
+            и помочь в оформлении заказов!</h1>
+
+        <p>
+        <p>Мастерская «BLISSET»</p>
+
+        <p>ИП Белодед Елена Петровна </p>
+        <p>УНП 391964531</p>
+
+        <p>Контактный телефон</p>
+        <p><img src="{% static 'main/img/a1.png' %}" width="20px"><a href="tel:+375296190482">+375 (29) 619-04-82</a></p>
+        <p><img src="{% static 'main/img/mts.png' %}" width="20px"><a href="tel:+375297139435">+375 (29) 713-94-35</a></p>
+
+        <p>Адрес производства:</p>
+        <p>РБ, г. Минск, ул. Промышленная, 8</p>
+        </p>
+    </div>
+
+{% endblock %}

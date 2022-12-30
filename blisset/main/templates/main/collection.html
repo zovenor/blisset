@@ -3,6 +3,14 @@
 
 {% block title %}{{ collection.name }}{% endblock %}
 
+{% block path %}
+    <div class="path_links">
+        <a href="/">ГЛАВНАЯ</a>/
+        <a href="/collections">КАТАЛОГ</a>/
+        <a href="{{ collection.get_url }}">{{ collection.name }}</a>
+    </div>
+{% endblock %}
+
 
 {% block content %}
 

@@ -1,0 +1,24 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+.content p {
+    width: 50vw;
+    text-indent: 1.5em;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.background {
+    opacity: 0.5;
+    position: absolute;
+    width: 100vw;
+    top: 95px;
+    z-index: -1;
+    max-height: 100vh;
+    object-fit: cover;
+}

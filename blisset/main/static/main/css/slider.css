@@ -11,7 +11,7 @@
 }
 
 .slider__slide {
-    height: calc(100vh - 180px);
+    height: calc(100vh - 145px);
 }
 
 .slider__slide video, .slider__slide img {
@@ -139,7 +139,8 @@
     flex-flow: column;
     width: 400px;
 }
-.page2-text2{
+
+.page2-text2 {
     position: absolute;
     z-index: 1000;
     width: 200px;
@@ -149,15 +150,44 @@
     font-size: 20px;
     font-family: TTDrugs;
 }
-.slider__slide_page2{
+
+.slider__slide_page2 {
     height: 100%;
 }
-.page2-button{
+
+.page2-button {
     width: 450px;
 }
-.page2_button_slider_slide{
+
+.page2_button_slider_slide {
     padding: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.slider1__page2 {
+    width: 750px;
+    height: 700px
+}
+
+@media (max-width: 900px) {
+    .big_square, .slider2__page2, .page2-text2, .page2_desc {
+        display: none;
+    }
+
+    .slider1__page2, .page2-content{
+        width: 100vw;
+    }
+
+    .page2-button {
+        transform: translate(0, 45vh);
+    }
+    .page2-text{
+        transform: translate(0,30vh);
+        color: white;
+    }
+    .page2-title{
+        font-size: 30px;
+    }
 }

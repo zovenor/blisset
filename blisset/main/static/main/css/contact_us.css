@@ -1,0 +1,28 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    padding: 50px;
+}
+.background{
+    opacity: 0.5;
+    position: absolute;
+    width: 100vw;
+    top: 95px;
+    z-index: -1;
+    max-height: 100vh;
+    object-fit: cover;
+}
+.content p{
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+}
+.content p img{
+    margin: 10px;
+}
+a{
+    color: rgba(16, 24, 32, 1);
+    text-decoration: none;
+}
