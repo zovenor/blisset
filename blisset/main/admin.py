@@ -3,10 +3,6 @@ from . import models
 
 # Register your models here.
 admin.site.register(models.CollectionModel)
-admin.site.register(models.ConfigsModel)
-
-
-# admin.site.register(models.ClothesModel)
 
 
 class ImagesInline(admin.TabularInline):
@@ -16,6 +12,11 @@ class ImagesInline(admin.TabularInline):
 
 class ColorsInline(admin.TabularInline):
     model = models.ClothesModel.colors.through
+    extra = 1
+
+
+class SizesInline(admin.TabularInline):
+    model = models.ClothesModel.sizes.through
     extra = 1
 
 
@@ -30,12 +31,28 @@ class PhotoAdmin(admin.ModelAdmin):
 class ClothesAdmin(admin.ModelAdmin):
     inlines = [
         ImagesInline,
-        ColorsInline
+        ColorsInline,
+        SizesInline
     ]
-    exclude = ('photos', 'colors')
+    exclude = ('photos', 'colors', 'sizes')
     list_filter = ('collection', 'colors')
 
 
 @admin.register(models.ColorModel)
 class ColorAdmin(admin.ModelAdmin):
     model = models.ColorModel
+
+
+@admin.register(models.MainPageSlider1Model)
+class MainPageSlider1Admin(admin.ModelAdmin):
+    model = models.MainPageSlider1Model
+
+
+@admin.register(models.MainPageSlider2Model)
+class MainPageSlider1Admin(admin.ModelAdmin):
+    model = models.MainPageSlider2Model
+
+
+@admin.register(models.SizeModel)
+class SizesAdmin(admin.ModelAdmin):
+    model = models.SizeModel

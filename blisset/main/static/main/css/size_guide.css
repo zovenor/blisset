@@ -1,0 +1,44 @@
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: column;
+    margin-left: 100px;
+    font-size: 25px;
+    padding-top: 100px;
+}
+
+.content *{
+    width: 50vw;
+}
+.background{
+    width: 30vw;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+    top: 95px;
+}
+td{
+    padding: 10px;
+    border: #000000 1px solid;
+}
+@media (max-width: 900px) {
+    td{
+        font-size: 10px;
+    }
+    .content *{
+        width: 90vw;
+    }
+    .background{
+        opacity: .5;
+    }
+    .content{
+        margin-left: 5vw;
+        width: 90vw;
+    }
+    li{
+        width: 40vw;
+        max-width: 80vw;
+        font-size: 20px;
+    }
+}

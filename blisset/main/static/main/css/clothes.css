@@ -1,6 +1,7 @@
-.content{
+.content {
     font-family: TTDrugs;
 }
+
 .slider_photo {
     display: flex;
     align-items: center;
@@ -62,21 +63,25 @@
     margin: 3px;
 }
 
-.clothes_info{
+.clothes_info {
     display: flex;
     align-items: center;
 }
-.clothes_info_right{
+
+.clothes_info_right {
     padding-left: 50px;
 }
-.color_block_mini{
+
+.color_block_mini {
     border-radius: 50px;
 }
-.clothes_colors{
+
+.clothes_colors {
     display: flex;
     align-items: center;
 }
-.color_block{
+
+.color_block {
     margin-right: 20px;
     /*margin-left: 20px;*/
     display: flex;
@@ -84,30 +89,47 @@
     justify-content: center;
     align-items: center;
 }
-.color_block_mini{
+
+.color_block_mini {
     margin-bottom: 10px;
 }
-.mobile_slider{
+
+.mobile_slider {
     width: 100vw;
     height: 600px;
     display: none;
 }
-.mobile_slider_photo img{
+
+.mobile_slider_photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mobile_slider_img_img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 @media (max-width: 816px) {
-    .slider_1, .slider_2{
+    .slider_1, .slider_2 {
         display: none;
     }
-    .mobile_slider{
+
+    .mobile_slider {
         display: flex;
+        flex-flow: row;
     }
-    .clothes_info{
+
+    .clothes_info {
         padding: 0;
     }
-    .clothes_info_right{
+
+    .clothes_info_right {
         padding: 40px;
+    }
+
+    .swiper-wrapper {
+        flex-flow: row;
     }
 }

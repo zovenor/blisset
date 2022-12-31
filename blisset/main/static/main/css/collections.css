@@ -1,7 +1,12 @@
 .collections_block {
-    width: 100vw;
+    width: 90vw;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
     justify-content: center;
 }
 
@@ -51,7 +56,7 @@
     opacity: 1;
 }
 
-.collection_block:hover .collection_link{
+.collection_block:hover .collection_link {
     color: white;
     background-color: rgba(0, 0, 0, .4);
 }

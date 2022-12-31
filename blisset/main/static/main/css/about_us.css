@@ -22,3 +22,8 @@
     max-height: 100vh;
     object-fit: cover;
 }
+@media (max-width: 900px) {
+    .content p{
+        width: 90vw;
+    }
+}

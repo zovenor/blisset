@@ -1,0 +1,57 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Руководство по уходу{% endblock %}
+
+{% block head %}
+
+    <link rel="stylesheet" href="{% static 'main/css/care_guide.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+    <h2>Каждое изделие от Blisset создано индивидуально для Вас
+        и нуждается в уходе, в соответствии с маркировкой.</h2>
+
+    <br>
+
+    <table>
+        <tr>
+            <td><img src="{% static 'main/img/care1.png' %}" alt=""></td>
+            <td>- максимальная температура стирки 40 С <br>
+                - мягкий режим
+            </td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'main/img/care2.png' %}" alt=""></td>
+            <td>- ручная стирка <br>
+                - максимальная температура стирки 40 С
+            </td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'main/img/care3.png' %}" alt=""></td>
+            <td>- не отбелтвать</td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'main/img/care4.png' %}" alt=""></td>
+            <td>- не применять барабанную сушку</td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'main/img/care5.png' %}" alt=""></td>
+            <td>- сушка на веревке или вешалке после стирки без отжима</td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'main/img/care6.png' %}" alt=""></td>
+            <td>- гладить при максимальной температуре подошвы утюга 110 С, без пара</td>
+        </tr>
+        <tr>
+            <td><img src="{% static 'main/img/care7.png' %}" alt=""></td>
+            <td>- глажение запрещено</td>
+        </tr>
+    </table>
+
+    <img src="{% static 'main/img/photo_2022-12-31_05-32-12.jpg' %}" alt="" class="background">
+
+{% endblock %}

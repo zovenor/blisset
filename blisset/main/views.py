@@ -7,7 +7,9 @@ from . import models
 class mainPage(View):
     def get(self, request):
         data = {
-            'configs': models.ConfigsModel.objects.all()
+            'configs': models.ConfigsModel.objects.all(),
+            'slider1': models.MainPageSlider1Model.objects.all(),
+            'slider2': models.MainPageSlider2Model.objects.all()
         }
         return render(request, 'main/mainpage.html', data)
 
@@ -79,6 +81,30 @@ class ContactUsPage(View):
 class AboutUsPage(View):
     def get(self, request):
         return render(request, 'main/about_us.html')
+
+    def post(self, request):
+        return mainPage.post(request)
+
+
+class GiftCertificatePage(View):
+    def get(self, request):
+        return render(request, 'main/gift_certificate.html')
+
+    def post(self, request):
+        return mainPage.post(request)
+
+
+class SizeGuidePage(View):
+    def get(self, request):
+        return render(request, 'main/size_guide.html')
+
+    def post(self, request):
+        return mainPage.post(request)
+
+
+class CareGuidePage(View):
+    def get(self, request):
+        return render(request, 'main/care_guide.html')
 
     def post(self, request):
         return mainPage.post(request)

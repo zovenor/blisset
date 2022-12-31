@@ -1,0 +1,39 @@
+.content {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    padding: 50px;
+}
+
+td {
+    font-size: 20px;
+}
+
+h2 {
+    width: 100vw;
+    text-align: center;
+}
+
+.background {
+    opacity: 0.5;
+    position: absolute;
+    width: 100vw;
+    top: 95px;
+    z-index: -1;
+    max-height: 100vh;
+    object-fit: cover;
+}
+table{
+    margin-left: 10vw;
+}
+@media (max-width: 900px) {
+    h2{
+        width: 90vw;
+    }
+    .content{
+        padding: 5vw;
+    }
+    table{
+        margin: 0;
+    }
+}

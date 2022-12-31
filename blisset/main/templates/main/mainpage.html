@@ -19,43 +19,30 @@
     <div class="slider__container swiper-container">
         <div class="slider__wrapper swiper-wrapper">
 
-            <div class="slider__slide swiper-slide">
-                <video preload="auto" muted loop autoplay>
-                    <source src="{% static 'main/video/video1_slider.mp4' %}" type="video/mp4">
-                </video>
+            {% for slide in slider1 %}
 
-                <div class="slider__content">
-                    <div class="slider__title">Alisee</div>
-                    уже в продаже
-                    <a class="slider__button" href="/">
-                        Вдохновиться
-                    </a>
+                <div class="slider__slide swiper-slide">
+
+                    {% if not slide.file_is_img %}
+
+                        <video preload="auto" muted loop autoplay>
+                            <source src='{{ slide.file.url }}' type="video/mp4">
+                        </video>
+
+                    {% else %}
+                        <img src='{{ slide.file.url }}' alt="">
+                    {% endif %}
+
+                    <div class="slider__content">
+                        <div class="slider__title">{{ slide.title }}</div>
+                        {{ slide.description }}
+                        <a class="slider__button" href="{{ slide.button_link }}">
+                            {{ slide.button_text }}
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="slider__slide swiper-slide">
-                <img src="{% static 'main/img/BRIDE 2.jpg' %}" alt="">
-
-                <div class="slider__content">
-                    <div class="slider__title">Alisee</div>
-                    уже в продаже
-                    <a class="slider__button" href="/">
-                        Вдохновиться
-                    </a>
-                </div>
-            </div>
-
-            <div class="slider__slide swiper-slide">
-                <img src="{% static 'main/img/BATTERFLY 1.JPG' %}" alt="">
-
-                <div class="slider__content">
-                    <div class="slider__title">Alisee</div>
-                    уже в продаже
-                    <a class="slider__button" href="/">
-                        Вдохновиться
-                    </a>
-                </div>
-            </div>
+            {% endfor %}
 
         </div>
         <div class="swiper-pagination"></div>
@@ -94,70 +81,86 @@
                 <div class="square" style="opacity: .0"></div>
             </div>
 
-            <a href="/" class="page2-button page2_button_slider swiper-container">
+            <div class="page2-button page2_button_slider swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="page2_button_slider_slide swiper-slide">
-                        Подобрать комплект
-                    </div>
-                    <div class="page2_button_slider_slide swiper-slide">
-                        Беспроигрышный подарок
-                    </div>
+
+                    {% for slide in slider2 %}
+                        <a href="{{ slide.button_link }}" class="page2_button_slider_slide swiper-slide">
+                            {{ slide.button_text }}
+                        </a>
+                    {% endfor %}
+
                 </div>
-            </a>
+            </div>
+
+
             <div class="page2-text">
                 <span class="slider__title page2-title swiper-container">
                     <div class="swiper-wrapper">
-                    <div class=" swiper-slide">
-                        Подарочный сертификат
-                    </div>
-                     <div class=" swiper-slide">
-                        FASHION COLLECTION
-                    </div>
+
+
+                        {% for slide in slider2 %}
+
+                            <div class=" swiper-slide">
+                                {{ slide.title }}
+                            </div>
+
+                        {% endfor %}
                 </div>
                 </span>
 
                 <span class="page2_desc" id="page2_desc">
                     <div class="swiper-wrapper">
-                    <div class=" swiper-slide">
-                        готовь подарки для любимых
-                    </div>
-                     <div class=" swiper-slide">
 
-                    </div>
+
+                        {% for slide in slider2 %}
+
+                            <div class="swiper-slide">
+                                {{ slide.description1 }}
+                            </div>
+
+
+                        {% endfor %}
                 </div>
                 </span>
             </div>
 
             <span class="page2-text2">
                 <div class="swiper-wrapper">
-                    <div class=" swiper-slide">
-                        готовь подарки для любимых
-                    </div>
-                     <div class=" swiper-slide">
-                        Some text
-                    </div>
+
+
+                    {% for slide in slider2 %}
+
+                        <div class="swiper-slide">
+                            {{ slide.description2 }}
+                        </div>
+
+                    {% endfor %}
+
                 </div>
             </span>
 
             <div class="slider1__page2 swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="slider__slide_page2 slider__slide swiper-slide">
-                        <img src="{% static 'main/img/BRIDE 2.jpg' %}" alt="">
-                    </div>
-                    <div class="slider__slide_page2 slider__slide slider__slide swiper-slide">
-                        <img src="{% static 'main/img/BATTERFLY 1.JPG' %}" alt="">
-                    </div>
+
+                    {% for slide in slider2 %}
+                        <div class="slider__slide_page2 slider__slide swiper-slide">
+                            <img src='{{ slide.photo1.url }}' alt="">
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
 
             <div class="slider2__page2 swiper-container" style="width: 200px; height: 300px">
                 <div class="swiper-wrapper">
-                    <div class="slider__slide_page2 slider__slide swiper-slide">
-                        <img src="{% static 'main/img/BRIDE 2.jpg' %}" alt="">
-                    </div>
-                    <div class="slider__slide_page2 slider__slide swiper-slide">
-                        <img src="{% static 'main/img/BATTERFLY 1.JPG' %}" alt="">
-                    </div>
+
+                    {% for slide in slider2 %}
+
+                        <div class="slider__slide_page2 slider__slide swiper-slide">
+                            <img src="{{ slide.photo2.url }}" alt="">
+                        </div>
+
+                    {% endfor %}
                 </div>
             </div>
         </div>

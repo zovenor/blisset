@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Gift certificate{% endblock %}
+
+{% block head %}
+
+    <link rel="stylesheet" href="{% static 'main/css/gift_certificate.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+    <img src="{% static 'main/img/photo_2022-12-31_04-17-27.jpg' %}" alt="" class="background">
+
+    <p>В мастерской «Blisset» Вы всегда можете приобрести
+        подарочный сертификат на любую сумму.</p>
+    <p>По Вашему пожеланию мы сделаем его именным!
+    </p>
+    <p> Подарочный сертификат отличное решение в качестве
+        подарка для Вашего любимого человека, подруги или коллеги!</p>
+    <p>Ждем Вас в мастерской «Blisset» за подарками!!!</p>
+
+{% endblock %}

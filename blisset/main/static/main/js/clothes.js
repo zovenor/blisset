@@ -51,9 +51,14 @@ for (let obj of objects) {
 }
 
 let mobileSlider = new Swiper('.mobile_slider', {
-    effect: 'fade',
     pagination: {
-        el: ".swiper-pagination",
+        el: '.swiper-pagination',
+        clickable: true,
     },
-    allowTouchMove: true,
+    autoplay: {
+        delay: 5000,
+    },
+    speed: 1000,
+    loop: true,
+    parallax: true,
 })
