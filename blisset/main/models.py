@@ -152,7 +152,10 @@ class MainPageSlider2Model(models.Model):
 
 class InformationOfOrdersModel(models.Model):
     name = models.CharField(max_length=250)
-    link = models.CharField(max_length=1000)
+    text = models.TextField()
 
     def __str__(self):
         return self.name
+
+    def get_url(self):
+        return translit(self.name, language_code='ru', reversed=True).replace(' ', '_').lower()

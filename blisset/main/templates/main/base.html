@@ -1,5 +1,6 @@
 {% load configs_tags %}
 {% load static %}
+{% load infopage_tags %}
 
 <!doctype html>
 <html lang="en">
@@ -153,9 +154,14 @@
     </div>
     <div class="footer-column">
         <p href="/" style="text-transform: uppercase">Информация по заказу</p>
-        <a href="/">Заказ и доставка</a>
-        <a href="/">Возврат и обмен</a>
-        <a href="/">Договор публичной оферты</a>
+
+        {% info_orders as info %}
+
+        {% for el in info %}
+
+            <a href="/info/{{ el.get_url }}">{{ el.name }}</a>
+
+        {% endfor %}
     </div>
     <div class="footer-column">
         <p style="text-transform: uppercase">Контакты</p>

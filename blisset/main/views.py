@@ -108,3 +108,21 @@ class CareGuidePage(View):
 
     def post(self, request):
         return mainPage.post(request)
+
+
+def get_info_obj(id_):
+    for el in models.InformationOfOrdersModel.objects.all():
+        if el.get_url() == id_:
+            return el
+
+
+class InfoPage(View):
+    def get(self, request, id_):
+        data = {
+            'info_model': get_info_obj(id_=id_)
+        }
+
+        return render(request, 'main/basepage.html', data)
+
+    def post(self, request):
+        return mainPage.post(request)

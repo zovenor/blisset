@@ -10,5 +10,6 @@ urlpatterns = [
     path('about_us', views.AboutUsPage.as_view()),
     path('gift_certificate', views.GiftCertificatePage.as_view()),
     path('size_guide', views.SizeGuidePage.as_view()),
-    path('care_guide', views.CareGuidePage.as_view())
+    path('care_guide', views.CareGuidePage.as_view()),
+    path('info/<str:id_>', views.InfoPage.as_view())
 ]

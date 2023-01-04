@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}{{ info_model.name }}{% endblock %}
+
+{% block head %}
+
+    <link rel="stylesheet" href="{% static 'main/css/basepage.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+    <p>{{ info_model.text }}</p>
+
+{% endblock %}
