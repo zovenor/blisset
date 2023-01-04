@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Play";
+    src: url("../fonts/Play-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: "TTDrugs";
+    src: url("../fonts/TTDrugs-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
