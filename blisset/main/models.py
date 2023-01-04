@@ -148,3 +148,11 @@ class MainPageSlider2Model(models.Model):
 
     def __str__(self):
         return f'{self.title} - {self.description1}'
+
+
+class InformationOfOrdersModel(models.Model):
+    name = models.CharField(max_length=250)
+    link = models.CharField(max_length=1000)
+
+    def __str__(self):
+        return self.name

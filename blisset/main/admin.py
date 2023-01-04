@@ -56,3 +56,8 @@ class MainPageSlider1Admin(admin.ModelAdmin):
 @admin.register(models.SizeModel)
 class SizesAdmin(admin.ModelAdmin):
     model = models.SizeModel
+
+
+@admin.register(models.InformationOfOrdersModel)
+class InformationOfOrdersAdmin(admin.ModelAdmin):
+    model = models.InformationOfOrdersModel
